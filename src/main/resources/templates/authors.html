@@ -1,0 +1,35 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>Spring 6 Webapp</head>
+<body>
+<h1>Authors List</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Last Name</th>
+        <th>Books</th>
+    </tr>
+    <tr th:each="author : ${authors}">
+        <th th:text="${author.id}"></th>
+        <th th:text="${author.firstName}"></th>
+        <th th:text="${author.lastName}"></th>
+        <th>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Publisher</th>
+                </tr>
+                <tr th:each="book : ${author.books}">
+                    <th th:text="${book.id}"></th>
+                    <th th:text="${book.title}"></th>
+                    <th th:text="${book.publisher.publisherName}"></th>
+                </tr>
+            </table>
+        </th>
+    </tr>
+</table>
+</body>
+</html>
+
